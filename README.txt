@@ -1,7 +1,7 @@
 Medication Management System
 Author: Fernando Valdivia
 =====================================================
-Version: 1.2
+Version: 1.21
 =====================================================
 Version Changelog
 1.0: Ability to create new clients and add medications to each file.
