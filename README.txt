@@ -7,6 +7,7 @@ Version Changelog
 1.0: Ability to create new clients and add medications to each file.
 1.1: Added the ability to edit added medications
 1.2: Added the ability to check if clients need refills on their medications.
+1.21: Added some comments to main.py for better readability. 
 Project Overview
 This Python project assists facilities in managing their clients' medications using CSV files. It offers a simple and intuitive way to handle medication records, ensuring effective tracking and management.
 =====================================================

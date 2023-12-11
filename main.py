@@ -251,6 +251,7 @@ def check_refill_needs(file_path):
         reader = csv.DictReader(csvfile)
         # For loop to run through each row of the csv file.
         for row in reader:
+            # Assigns variables to each of the appropriate column information.
             last_count_date = parse_date(row['Last Count Date'])
             daily_dose = int(row['Daily Dose'])
             quantity = int(row['Quantity'])
@@ -280,19 +281,26 @@ def medication_menu(file_path, name):
 
         # Handle the user's choice
         if choice == '1':
+            # Sends the medications list to add_medication to be appended with a new one.
             add_medication(medications)
         elif choice == '2':
+            # Sends the list of medications to the list_mediciations function to display and enumerate them for ease
+            # of reference.
             list_medications(medications)
         elif choice == '3':
-
+            # uses the select_medication function to find the appropriate index. Then sends it and the medication list
+            # to update medication to be potentially changed.
             update_medication(medications, select_medication_to_edit(medications))
         elif choice == '4':
-
+            #uses the select_medication function to find the appropriate index. Then sends it and the medication list
+            # to potentially remove a medication
             remove_medication(medications, select_medication_to_edit(medications))
         elif choice == '5':
+            # sends the current client's filepath and the medication list to the save_medications function to
+            # Save all the changes made to a file.
             save_medications(file_path, medications)
             print("Data saved. Returning to Main Menu")
-            break  # Exit the loop to end the program
+            break  # Exit the loop to return to the main menu.
         elif choice == '6':
             print('Returning to Main Menu without saving..')
             break
@@ -337,9 +345,13 @@ def main_menu():
             client_choice = display_files_and_get_choice(list_client_files(client_directory))
             medication_menu(client_choice[0],client_choice[1])
         elif choice == '3':
+            # First grabs the file for the client the user wants to work with via display_files function
+            # Then prints out all the medications using the list_medications function.
             client_choice = display_files_and_get_choice(list_client_files(client_directory))
             list_medications(load_medications(client_choice[0]))
         elif choice == '4':
+            # Uses the global client_directory as an arguement for check_refill_needs which will print all the clients
+            # That need a refill within a week.
             check_refill_needs_for_all(client_directory)
 
         elif choice == '5':
